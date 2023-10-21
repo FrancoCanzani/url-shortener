@@ -16,9 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body
-        className={`${inter.className} max-w-5xl mx-auto flex flex-col min-h-screen items-center justify-center animate-in fade-in slide-in-from-top-4 duration-1000 ease-in-out`}
-      >
+      <body className={`${inter.className} max-w-5xl mx-auto min-h-screen`}>
         {children}
       </body>
     </html>
