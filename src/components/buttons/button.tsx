@@ -5,10 +5,12 @@ const button = cva('button', {
   variants: {
     variant: {
       primary: [
-        'bg-blue-500',
+        'bg-gray-500',
         'text-white',
+        'rounded-lg',
+        'p-2',
         'border-transparent',
-        'hover:bg-blue-600',
+        'hover:bg-gray-600',
       ],
       secondary: [
         'bg-white',
@@ -28,7 +30,7 @@ const button = cva('button', {
   ],
   defaultVariants: {
     variant: 'primary',
-    size: 'medium',
+    size: 'small',
   },
 });
 
