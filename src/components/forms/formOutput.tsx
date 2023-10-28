@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ClipboardCopy } from 'lucide-react';
 import Button from '../buttons/button';
 import Tooltip from '../tooltip';
+import DownloadQR from '../downloadQR';
 
 export default function FormOutput({
   response,
@@ -29,32 +30,33 @@ export default function FormOutput({
   }
 
   return (
-    <div className='mt-6'>
+    <div>
       {response.error ? (
         <span>{`Error: ${response.error}`}</span>
       ) : (
-        <div className='px-2 py-1 text-sm flex items-center justify-center bg-gray-200 rounded-lg'>
+        <div className='p-2 shadow-sm gap-x-2 text-sm flex items-center justify-center bg-gray-100 text-black rounded-lg'>
           <a
-            href={`https://url-shortener-btnl.onrender.com/${response.slug}`}
+            href={`https://url-shortener.1.us-1.fl0.io/${response.slug}`}
             target='_blank'
             className='mr-4'
           >
-            {`https://url-shortener-btnl.onrender.com/${response.slug}`}
+            📎 {`https://url-shortener.1.us-1.fl0.io/${response.slug}`}
           </a>
           <Tooltip text={tooltipText}>
-            {
-              <Button
-                onClick={() => {
-                  setShortURL(
-                    `https://url-shortener-btnl.onrender.com/${response.slug}`
-                  );
-                  copyToClipboard();
-                }}
-                aria-label='Copy to clipboard'
-              >
-                <ClipboardCopy size={16} />
-              </Button>
-            }
+            <Button
+              onClick={() => {
+                setShortURL(
+                  `https://url-shortener.1.us-1.fl0.io/${response.slug}`
+                );
+                copyToClipboard();
+              }}
+              className='bg-gray-200 shadow-sm text-black hover:bg-gray-300'
+            >
+              <ClipboardCopy size={16} color='black' />
+            </Button>
+          </Tooltip>
+          <Tooltip text='Generate QR'>
+            {<DownloadQR response={response} />}
           </Tooltip>
         </div>
       )}

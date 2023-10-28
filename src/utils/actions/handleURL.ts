@@ -1,24 +1,32 @@
 'use server';
 
 const API_URL = process.env.API_URL;
+const API_KEY = process.env.API_KEY;
 
 type inputData = {
   url: FormDataEntryValue | null;
 };
 
-export default async function handleURL(data: inputData) {
+export default async function handleURL(data: inputData): Promise<any> {
   try {
-    const res = await fetch(`${API_URL}/url`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
+    if (data.url) {
+      const res = await fetch(`${API_URL}/url`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `${API_KEY}`,
+        },
 
-    const json = await res.json();
-    return json;
+        body: JSON.stringify(data),
+      });
+
+      const json = await res.json();
+
+      return json;
+    } else {
+      throw new Error('URL is null or undefined');
+    }
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
