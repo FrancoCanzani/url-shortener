@@ -9,6 +9,7 @@ export default async function RecentLinks() {
     headers: {
       authorization: `${API_KEY}`,
     },
+    next: { revalidate: 500 },
   });
 
   const recentLinks = await response.json();

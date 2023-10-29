@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${GeistSans.className} px-3 max-w-5xl mx-auto min-h-screen bg-gray-50`}
+        className={`${GeistSans.className} px-6 max-w-4xl mx-auto min-h-screen bg-gray-50`}
       >
         <Header />
         {children}

@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, ReactNode } from 'react';
 
 export default function Tooltip({

@@ -7,7 +7,7 @@ type inputData = {
   url: FormDataEntryValue | null;
 };
 
-export default async function handleURL(data: inputData): Promise<any> {
+export default async function handleLink(data: inputData): Promise<any> {
   try {
     if (data.url) {
       const res = await fetch(`${API_URL}/links`, {
@@ -20,6 +20,11 @@ export default async function handleURL(data: inputData): Promise<any> {
       });
 
       const json = await res.json();
+
+      if (!res.ok) {
+        throw new Error(json.error || 'An error occurred.');
+      }
+
       return json;
     } else {
       throw new Error('URL is null or undefined');
