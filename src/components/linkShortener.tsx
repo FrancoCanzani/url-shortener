@@ -10,7 +10,7 @@ export default function LinkShortener() {
   const [error, setError] = useState<string | null>(null);
 
   return (
-    <section className='w-full flex flex-col items-center justify-center gap-y-4'>
+    <section className='w-full flex flex-col items-center justify-center gap-y-4 mb-10'>
       <LinkForm setLinkData={setLinkData} setError={setError} />
       <div className='h-10 w-full flex items-center justify-center'>
         {error ? (

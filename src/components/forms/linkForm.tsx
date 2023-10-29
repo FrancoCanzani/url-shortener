@@ -15,37 +15,44 @@ export default function LinkForm({
   const formRef = useRef<HTMLFormElement>(null);
   const submitRef = useRef<React.ElementRef<'button'>>(null);
 
+  const handleError = (message: string) => {
+    setError(message);
+    setTimeout(() => {
+      setError(null);
+    }, 2500);
+  };
+
   return (
     <form
       ref={formRef}
       action={async (FormData) => {
         try {
-          const data = {
-            url: FormData.get('link'),
-            slug: FormData.get('slug'),
-          };
-          const res = await handleLink(data);
+          const url = FormData.get('link');
+          const slug = FormData.get('slug');
 
+          if (!url) {
+            handleError('URL cannot be empty.');
+            return;
+          }
+
+          const data: { url: FormDataEntryValue; slug?: FormDataEntryValue } = {
+            url,
+          };
+          if (slug) data.slug = slug;
+
+          const res = await handleLink(data);
           setLinkData(res);
+
           if (res && !res.error) {
-            formRef?.current?.reset(); // Reset the form only when there's no error
+            formRef?.current?.reset();
           } else {
-            setError(res.message);
-            setTimeout(() => {
-              setError(null);
-            }, 2500);
+            handleError(res.message);
           }
         } catch (error: unknown) {
           if (error instanceof Error) {
-            setError(error.message);
-            setTimeout(() => {
-              setError(null);
-            }, 2500);
+            handleError(error.message);
           } else {
-            setError('An unexpected error occurred.');
-            setTimeout(() => {
-              setError(null);
-            }, 2500);
+            handleError('An unexpected error occurred.');
           }
         }
       }}
@@ -67,6 +74,7 @@ export default function LinkForm({
         required
         className='bg-slate-900 px-2.5 py-1 rounded-lg text-white placeholder:text-gray-400 ring-0 outline-none resize-none font-mono text-sm h-11 w-full transition-all duration-300'
       />
+
       <div className='bg-slate-900 hidden sm:flex items-center justify-center px-2.5 py-1 rounded-lg text-white placeholder:text-gray-400 ring-0 outline-none resize-none font-mono text-sm h-11 w-full transition-all duration-300'>
         <p>clipped.site/</p>
         <input
@@ -84,6 +92,7 @@ export default function LinkForm({
           className='bg-slate-900 text-white placeholder:text-gray-400 ring-0 outline-none resize-none font-mono text-sm h-11 w-full transition-all duration-300'
         />
       </div>
+
       <SubmitButton submitRef={submitRef} />
     </form>
   );

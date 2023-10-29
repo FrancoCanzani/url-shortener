@@ -15,6 +15,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animated')],
+  plugins: [require('tailwindcss-animated'), 'prettier-plugin-tailwindcss'],
 };
 export default config;

@@ -3,9 +3,9 @@ import RecentLinks from '@/components/recentLinks';
 
 export default function Home() {
   return (
-    <main className='flex flex-col w-full items-center justify-evenly min-h-1/2'>
-      <div className='max-w-2xl mt-8 xl:max-w-3xl text-center'>
-        <h1 className='my-5 capitalize font-display text-5xl md:text-6xl  font-extrabold leading-[1.15] sm:leading-[1.15]"'>
+    <main className='flex flex-col w-full items-center justify-evenly'>
+      <div className='max-w-2xl my-8 xl:max-w-3xl text-center'>
+        <h1 className='my-5 capitalize font-display text-5xl md:text-6xl font-extrabold leading-[1.15] sm:leading-[1.15]"'>
           Links with{' '}
           <span className='bg-gradient-to-r from-blue-500 to-red-600 bg-clip-text text-transparent'>
             Superpowers
@@ -16,9 +16,7 @@ export default function Home() {
           working, and what’s not. All in one platform.
         </h2>
       </div>
-      <div className='w-full my-8 flex flex-col items-center justify-center'>
-        <LinkShortener />
-      </div>
+      <LinkShortener />
       <RecentLinks />
     </main>
   );

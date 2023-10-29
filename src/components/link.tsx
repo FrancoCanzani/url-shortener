@@ -1,10 +1,17 @@
+'use client';
+
 import { LinkType } from '@/utils/types';
-import { ClipboardCopy } from 'lucide-react';
+import { ClipboardCopy, Share2 } from 'lucide-react';
 import Button from './buttons/button';
 import Tooltip from './tooltip';
-import DownloadQR from './downloadQR';
+import GenerateQR from './generateQR';
+import { copyToClipboard } from '@/utils/copyToClipboard';
+import { handleShare } from '@/utils/handleShare';
+import { useState } from 'react';
 
 export default function Link({ linkData }: { linkData: LinkType | null }) {
+  const [clipboardText, setClipboardText] = useState('Copy to clipboard');
+
   if (!linkData) {
     return null;
   }
@@ -22,13 +29,32 @@ export default function Link({ linkData }: { linkData: LinkType | null }) {
         📎 clipped.site/<span className='font-semibold'>{linkData.slug}</span>
       </a>
       <div className='space-x-2 flex items-center justify-center z-10'>
-        <Tooltip text='Copy to clipboard'>
-          <Button>
+        <Tooltip text={clipboardText}>
+          <Button
+            onClick={() =>
+              copyToClipboard({
+                textToCopy: shortenedURL,
+                onSuccess: () => {
+                  setClipboardText('Copied!');
+                  setTimeout(() => {
+                    setClipboardText('Copy to clipboard');
+                  }, 1000);
+                },
+
+                onFailure: () => setClipboardText('Failed to copy'),
+              })
+            }
+          >
             <ClipboardCopy size={16} color='black' />
           </Button>
         </Tooltip>
+        <Tooltip text='Share'>
+          <Button onClick={() => handleShare(shortenedURL)}>
+            <Share2 size={16} color='black' />
+          </Button>
+        </Tooltip>
         <Tooltip text='Generate QR'>
-          <DownloadQR link={linkData} />
+          <GenerateQR link={linkData} />
         </Tooltip>
       </div>
     </div>
