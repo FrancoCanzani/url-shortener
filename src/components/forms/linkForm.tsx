@@ -2,15 +2,14 @@
 
 import { CornerDownLeft } from 'lucide-react';
 import Button from '../buttons/button';
-import { useRef } from 'react';
+import { Dispatch, SetStateAction, useRef } from 'react';
 import handleURL from '@/utils/actions/handleURL';
-import { Dispatch, SetStateAction } from 'react';
-import { ApiResponse } from '@/utils/types';
+import { LinkType } from '@/utils/types';
 
-export default function UrlForm({
-  setResponse,
+export default function LinkForm({
+  setLinkData,
 }: {
-  setResponse: Dispatch<SetStateAction<ApiResponse | null>>;
+  setLinkData: Dispatch<SetStateAction<LinkType | null>>;
 }) {
   const formRef = useRef<HTMLFormElement>(null);
   const submitRef = useRef<React.ElementRef<'button'>>(null);
@@ -23,10 +22,9 @@ export default function UrlForm({
           url: FormData.get('url'),
           slug: FormData.get('slug'),
         };
-        const apiResponse = await handleURL(data);
-        setResponse(apiResponse);
-
-        if (!apiResponse.error) {
+        const res = await handleURL(data);
+        setLinkData(res);
+        if (!res.error) {
           formRef?.current?.reset(); // Reset the form only when there's no error
         }
       }}

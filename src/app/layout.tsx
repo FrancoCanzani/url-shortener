@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font';
 import './globals.css';
 import Header from '@/components/header';
-import Tester from '@/components/tester';
 import Footer from '@/components/footer';
 
 export const metadata: Metadata = {

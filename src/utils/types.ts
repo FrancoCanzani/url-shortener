@@ -8,4 +8,11 @@ type ApiResponse = {
   error: string | null; // Any error message in case of a failure
 };
 
-export type { ApiResponse };
+type LinkType = {
+  _id: string;
+  url: string;
+  slug: string;
+  clicks: number;
+  createdAt: string;
+};
+export type { ApiResponse, LinkType };

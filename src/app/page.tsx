@@ -1,13 +1,7 @@
-'use client';
-
-import UrlForm from '@/components/forms/urlForm';
-import { useState } from 'react';
-import { ApiResponse } from '@/utils/types';
-import FormOutput from '@/components/forms/formOutput';
+import LinkShortener from '@/components/linkShortener';
+import RecentLinks from '@/components/recentLinks';
 
 export default function Home() {
-  const [response, setResponse] = useState<ApiResponse | null>(null);
-
   return (
     <main className='flex flex-col w-full items-center justify-evenly min-h-1/2'>
       <div className='max-w-2xl mt-8 xl:max-w-3xl text-center'>
@@ -23,11 +17,9 @@ export default function Home() {
         </h2>
       </div>
       <div className='w-full my-8 flex flex-col items-center justify-center'>
-        <UrlForm setResponse={setResponse} />
-        <div className='flex items-center justify-center gap-3 mt-6'>
-          {response && <FormOutput response={response} />}
-        </div>
+        <LinkShortener />
       </div>
+      <RecentLinks />
     </main>
   );
 }

@@ -6,7 +6,7 @@ const button = cva('button', {
     variant: {
       primary: [
         'bg-gray-200',
-        'text-white',
+        'text-black',
         'rounded-lg',
         'p-2',
         'border-transparent',
