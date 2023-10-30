@@ -19,7 +19,7 @@ export default async function RecentLinks() {
   }
 
   return (
-    <section className='mx-auto my-3'>
+    <section className='mx-auto my-3 px-4 lg:px-0'>
       <h2 className='font-semibold text-lg mb-3'>Recent Links ¬</h2>
       <ul className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
         {recentLinks.map((link: LinkType) => (
