@@ -7,7 +7,7 @@ export default function GenerateQR({ link }: { link: LinkType }) {
 
   return (
     <a href={`${API_URL}/${link?.slug}`} target='blank'>
-      <Button>
+      <Button className='shadow-md'>
         <QrCode size={16} color='black' />
       </Button>
     </a>

@@ -19,7 +19,7 @@ export default function Link({ linkData }: { linkData: LinkType | null }) {
   const shortenedURL = `clipped.site/${linkData.slug}`;
 
   return (
-    <div className='p-2 animate-fade shadow-sm gap-x-2 text-sm text-clip flex items-center justify-between bg-gray-100 rounded-lg'>
+    <div className='p-2 hover:scale-105 transition-all ease-in-out animate-fade shadow-sm gap-x-2 text-sm text-clip flex items-center justify-between bg-gray-100 rounded-lg'>
       <a
         href={shortenedURL}
         target='_blank'
@@ -31,6 +31,7 @@ export default function Link({ linkData }: { linkData: LinkType | null }) {
       <div className='space-x-2 flex items-center justify-center z-10'>
         <Tooltip text={clipboardText}>
           <Button
+            className='shadow-md'
             onClick={() =>
               copyToClipboard({
                 textToCopy: shortenedURL,
@@ -49,7 +50,10 @@ export default function Link({ linkData }: { linkData: LinkType | null }) {
           </Button>
         </Tooltip>
         <Tooltip text='Share'>
-          <Button onClick={() => handleShare(shortenedURL)}>
+          <Button
+            className='shadow-md'
+            onClick={() => handleShare(shortenedURL)}
+          >
             <Share2 size={16} color='black' />
           </Button>
         </Tooltip>

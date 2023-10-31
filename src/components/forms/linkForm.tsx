@@ -56,7 +56,7 @@ export default function LinkForm({
           }
         }
       }}
-      className='w-3/4 lg:w-1/2 flex items-center gap-x-2 justify-center mb-2'
+      className='w-full lg:w-3/4 xl:w-[55%] flex items-center gap-x-2 justify-center mb-2'
     >
       <input
         onKeyDown={(e) => {
@@ -72,10 +72,10 @@ export default function LinkForm({
         autoFocus
         placeholder='link'
         required
-        className='bg-slate-900 shadow-md px-2.5 py-1 rounded-lg text-white placeholder:text-gray-400 outline-none resize-none font-mono text-sm h-11 w-full transition-all duration-300'
+        className='bg-slate-900 shadow-md px-3 py-4 rounded-xl text-white placeholder:text-gray-400 outline-none resize-none w-full transition-all duration-300'
       />
 
-      <div className='bg-slate-900 hidden sm:flex items-center justify-center px-2.5 py-1 rounded-lg text-white placeholder:text-gray-400 ring-0 outline-none resize-none font-mono text-sm h-11 w-full transition-all duration-300'>
+      <div className='bg-slate-900 hidden md:flex items-center justify-center px-3 py-4 rounded-xl text-white placeholder:text-gray-400 ring-0 outline-none resize-none w-full transition-all duration-300'>
         <p>clipped.site/</p>
         <input
           onKeyDown={(e) => {
@@ -89,7 +89,7 @@ export default function LinkForm({
           id='slug'
           name='slug'
           placeholder='slug'
-          className='bg-slate-900  shadow-md text-white placeholder:text-gray-400 outline-none resize-none font-mono text-sm h-11 w-full transition-all duration-300'
+          className='bg-slate-900 shadow-md text-white placeholder:text-gray-400 outline-none resize-none w-full transition-all duration-300'
         />
       </div>
 

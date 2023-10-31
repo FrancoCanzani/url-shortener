@@ -19,11 +19,11 @@ export default function SubmitButton({
       type='submit'
       aria-label='submit'
       disabled={pending}
-      className={cn('h-11 px-3 shadow-md', {
+      className={cn('p-4 rounded-xl shadow-md', {
         'opacity-75': pending,
       })}
     >
-      {<CornerDownLeft size={20} />}
+      {<CornerDownLeft size={23} />}
     </Button>
   );
 }
