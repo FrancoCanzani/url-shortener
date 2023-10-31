@@ -22,7 +22,7 @@ const button = cva('button', {
         'rounded-lg',
         'bg-slate-900',
         'hover:bg-gray-700',
-        'p-2.5',
+        'p-3',
         'text-white',
       ],
     },

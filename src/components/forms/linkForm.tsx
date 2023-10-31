@@ -56,43 +56,28 @@ export default function LinkForm({
           }
         }
       }}
-      className='w-full lg:w-3/4 xl:w-[55%] flex items-center gap-x-2 justify-center mb-2'
+      className='flex gap-x-4 items-center justify-center w-full mb-6'
     >
       <input
-        onKeyDown={(e) => {
-          if (e.key === 'Enter') {
-            e.preventDefault();
-            submitRef.current?.click();
-          }
-        }}
-        aria-label='Enter a URL'
-        type='text'
+        type='url'
         id='link'
         name='link'
-        autoFocus
-        placeholder='link'
+        placeholder='Enter your link here'
         required
-        className='bg-slate-900 shadow-md px-3 py-4 rounded-xl text-white placeholder:text-gray-400 outline-none resize-none w-full transition-all duration-300'
+        autoFocus
+        className='w-full px-4 py-3 bg-slate-900 text-white placeholder:text-gray-400 rounded-lg shadow-md outline-none transition duration-300'
       />
 
-      <div className='bg-slate-900 hidden md:flex items-center justify-center px-3 py-4 rounded-xl text-white placeholder:text-gray-400 ring-0 outline-none resize-none w-full transition-all duration-300'>
-        <p>clipped.site/</p>
+      <div className='hidden sm:flex items-center w-full bg-slate-900 text-white rounded-lg shadow-md'>
+        <span className='px-4 py-3 bg-gray-800 rounded-xl'>clipped.site/</span>
         <input
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              e.preventDefault();
-              submitRef.current?.click();
-            }
-          }}
-          aria-label='Enter a Slug'
-          type='slug'
+          type='text'
           id='slug'
           name='slug'
-          placeholder='slug'
-          className='bg-slate-900 shadow-md text-white placeholder:text-gray-400 outline-none resize-none w-full transition-all duration-300'
+          placeholder='custom-slug'
+          className='w-full px-4 py-3 bg-slate-900 placeholder:text-gray-400 rounded-r-lg outline-none transition duration-300'
         />
       </div>
-
       <SubmitButton submitRef={submitRef} />
     </form>
   );

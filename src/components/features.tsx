@@ -59,7 +59,7 @@ const features = [
 
 export function Features() {
   return (
-    <ul className='px-4 sm:px-6 lg:px-8 pb-4 lg:pb-6 pt-6 max-w-[54rem] mx-auto grid grid-cols-1 gap-2 lg:gap-4 sm:grid-cols-2 lg:grid-cols-3 max-h-[33rem] overflow-hidden'>
+    <ul className='pb-4 lg:pb-6 pt-6 max-w-[50rem] mx-auto grid grid-cols-1 gap-2 lg:gap-4 sm:grid-cols-2 lg:grid-cols-3 max-h-[33rem] overflow-hidden'>
       {features.map((feature) => (
         <li key={feature.title} className=''>
           <Feature
@@ -83,7 +83,7 @@ export function Feature({
   title: string;
 }) {
   return (
-    <figure className='flex bg border hover:scale-105 transition-all ease-in-out shadow-sm flex-col bg-gray-50 rounded-lg p-3'>
+    <figure className='flex p-4 bg-white rounded-lg shadow-lg text-sm border transform transition-transform ease-in-out duration-300 hover:scale-105 flex-col'>
       <span className='bg-gray-100 rounded-lg p-2 w-fit mb-3 shadow-md'>
         {svg}
       </span>

@@ -19,19 +19,20 @@ export default function Link({ linkData }: { linkData: LinkType | null }) {
   const shortenedURL = `clipped.site/${linkData.slug}`;
 
   return (
-    <div className='p-2 hover:scale-105 transition-all ease-in-out animate-fade shadow-sm gap-x-2 text-sm text-clip flex items-center justify-between bg-gray-100 rounded-lg'>
+    <div className='flex border items-center justify-between px-4 py-3 space-x-4 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transform transition-transform duration-200 hover:scale-105'>
       <a
         href={shortenedURL}
         target='_blank'
-        className='mr-4 overflow-hidden whitespace-nowrap text-ellipsis'
         title={shortenedURL}
+        className='flex-1 text-base px-2 text-gray-800 truncate hover:text-blue-600 focus:text-blue-600 focus:underline'
       >
         📎 clipped.site/<span className='font-semibold'>{linkData.slug}</span>
       </a>
-      <div className='space-x-2 flex items-center justify-center z-10'>
+
+      <div className='flex items-center space-x-2'>
         <Tooltip text={clipboardText}>
           <Button
-            className='shadow-md'
+            className='p-2 bg-gray-200 hover:bg-gray-300 shadow-md transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none'
             onClick={() =>
               copyToClipboard({
                 textToCopy: shortenedURL,
@@ -41,22 +42,26 @@ export default function Link({ linkData }: { linkData: LinkType | null }) {
                     setClipboardText('Copy to clipboard');
                   }, 1000);
                 },
-
                 onFailure: () => setClipboardText('Failed to copy'),
               })
             }
           >
-            <ClipboardCopy size={16} color='black' />
+            <ClipboardCopy
+              size={16}
+              className='text-gray-700 hover:text-gray-900'
+            />
           </Button>
         </Tooltip>
+
         <Tooltip text='Share'>
           <Button
-            className='shadow-md'
+            className='p-2 bg-gray-200 hover:bg-gray-300 shadow-md transition-colors duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none'
             onClick={() => handleShare(shortenedURL)}
           >
-            <Share2 size={16} color='black' />
+            <Share2 size={16} className='text-gray-700 hover:text-gray-900' />
           </Button>
         </Tooltip>
+
         <Tooltip text='Generate QR'>
           <GenerateQR link={linkData} />
         </Tooltip>

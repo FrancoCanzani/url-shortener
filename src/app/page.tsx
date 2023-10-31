@@ -4,8 +4,8 @@ import RecentLinks from '@/components/recentLinks';
 
 export default function Home() {
   return (
-    <main className='flex flex-col mx-auto w-full items-center justify-evenly'>
-      <div className='mx-auto px-4 sm:px-6 lg:px-8 lg:pb-10 pt-10 text-center lg:pt-22 max-w-4xl'>
+    <main className='flex px-4 sm:px-6 lg:px-8 max-w-4xl flex-col mx-auto w-full items-center justify-evenly'>
+      <div className='mx-auto pb-2 lg:pb-10 pt-10 text-center lg:pt-22'>
         <h1 className='mx-auto font-bold text-6xl tracking-tight text-slate-900 sm:text-7xl'>
           Links with{' '}
           <span className='bg-gradient-to-r from-blue-500 to-red-600 bg-clip-text text-transparent'>

@@ -19,7 +19,7 @@ export default function SubmitButton({
       type='submit'
       aria-label='submit'
       disabled={pending}
-      className={cn('p-4 rounded-xl shadow-md', {
+      className={cn('shadow-md', {
         'opacity-75': pending,
       })}
     >
