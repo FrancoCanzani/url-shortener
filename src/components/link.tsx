@@ -16,15 +16,15 @@ export default function Link({ linkData }: { linkData: LinkType | null }) {
     return null;
   }
 
-  const shortenedURL = `clipped.site/${linkData.slug}`;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const shortenedURL = `${API_URL}/${linkData.slug}`;
 
   return (
     <div className='flex border items-center justify-between px-4 py-3 space-x-4 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transform transition-transform duration-200 hover:scale-105'>
       <a
         href={shortenedURL}
         target='_blank'
-        title={shortenedURL}
-        className='flex-1 text-base px-2 text-gray-800 truncate hover:text-blue-600 focus:text-blue-600 focus:underline'
+        className='flex-1 text-base px-2 text-gray-800 truncate hover:text-blue-600 focus:text-blue-600'
       >
         📎 clipped.site/<span className='font-semibold'>{linkData.slug}</span>
       </a>

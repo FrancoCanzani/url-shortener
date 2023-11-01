@@ -59,7 +59,7 @@ export default function LinkForm({
       className='flex gap-x-4 items-center justify-center w-full mb-6'
     >
       <input
-        type='url'
+        type='string'
         id='link'
         name='link'
         placeholder='Enter your link here'

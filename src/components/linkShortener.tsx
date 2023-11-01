@@ -14,7 +14,7 @@ export default function LinkShortener() {
       <LinkForm setLinkData={setLinkData} setError={setError} />
       <div className='h-10 flex items-center justify-center'>
         {error ? (
-          <div className='animate-fade p-2 shadow-sm text-xs flex items-center justify-between bg-red-100 ring-inset ring-1 ring-red-500 rounded-lg'>
+          <div className='flex border items-center justify-between px-4 py-3 space-x-4 bg-red-50 text-red-500 border-red-200 rounded-lg shadow-md hover:shadow-lg transform transition-transform duration-200 hover:scale-105'>
             Error: {error}
           </div>
         ) : (
